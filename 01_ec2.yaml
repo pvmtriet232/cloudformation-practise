@@ -31,13 +31,13 @@ Resources:
           CidrIp: 0.0.0.0/0
 
   WebAppEIP:
-  Type: AWS::EC2::EIP
-  Properties:
-    Domain: vpc
-    InstanceId: !Ref WebAppInstance
-    Tags:
-      - Key: Name
-        Value: !Join ["-", [webapp-eip, dev]]
+    Type: AWS::EC2::EIP
+    Properties:
+      Domain: vpc
+      InstanceId: !Ref WebAppInstance
+      Tags:
+        - Key: Name
+          Value: !Join ["-", [webapp-eip, dev]]
 Outputs:
   WebsiteURL:
     Value: !Sub http://${WebAppEIP}
